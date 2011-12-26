@@ -590,13 +590,6 @@ class ServerThread extends Thread {
                 "1".equals(SystemProperties.get("persist.service.adb.enable")) ? 1 : 0);
 
         // register observer to listen for settings changes
-<<<<<<< HEAD
-        mContentResolver.registerContentObserver(Settings.Secure.getUriFor(Settings.Secure.ADB_PORT),
-                false, new AdbPortObserver());
-
-        mContentResolver.registerContentObserver(Settings.Secure.getUriFor(Settings.Secure.ADB_ENABLED),
-                false, new AdbSettingsObserver());
-=======
         mContentResolver.registerContentObserver(
             Settings.Secure.getUriFor(Settings.Secure.ADB_PORT),
             false, new AdbPortObserver());
@@ -604,7 +597,6 @@ class ServerThread extends Thread {
         mContentResolver.registerContentObserver(
             Settings.Secure.getUriFor(Settings.Secure.ADB_ENABLED),
             false, new AdbSettingsObserver());
->>>>>>> a4120ec... ADB Over Network, integration of the adb-host mode (already present)
 
         // Before things start rolling, be sure we have decided whether
         // we are in safe mode.
