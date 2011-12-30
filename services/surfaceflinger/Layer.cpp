@@ -211,8 +211,6 @@ void Layer::setGeometry(hwc_layer_t* hwcl)
     }
 #endif
 
-    hwcl->alpha = s.alpha;
-
     /*
      * Transformations are applied in this order:
      * 1) buffer orientation/flip/mirror
