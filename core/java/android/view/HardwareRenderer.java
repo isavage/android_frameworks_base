@@ -445,7 +445,7 @@ public abstract class HardwareRenderer {
         static boolean sTileRendering;
         static {
             String dirtyProperty = SystemProperties.get(RENDER_DIRTY_REGIONS_PROPERTY, "true");
-            String trProperty = SystemProperties.get(TILE_RENDERING_PROPERTY, "true");
+            String trProperty = SystemProperties.get(TILE_RENDERING_PROPERTY, "false");
             //noinspection PointlessBooleanExpression,ConstantConditions
             //enable dirty regions if tile-rendering enabled or dirty regions property enabled
             sTileRendering = "true".equalsIgnoreCase(trProperty);
@@ -456,6 +456,8 @@ public abstract class HardwareRenderer {
         }
 
         boolean mDirtyRegionsEnabled;
+        boolean mUpdateDirtyRegions;
+
         final boolean mVsyncDisabled;
 
         final int mGlVersion;
@@ -690,6 +692,12 @@ public abstract class HardwareRenderer {
             
             initCaches();
 
+            enableDirtyRegions();
+
+            return mEglContext.getGL();
+        }
+
+        private void enableDirtyRegions() {
             // If mDirtyRegions is set, this means we have an EGL configuration
             // with EGL_SWAP_BEHAVIOR_PRESERVED_BIT set
             if (sDirtyRegions) {
@@ -705,8 +713,6 @@ public abstract class HardwareRenderer {
                 // configuration (see RENDER_DIRTY_REGIONS)
                 mDirtyRegionsEnabled = GLES20Canvas.isBackBufferPreserved();
             }
-
-            return mEglContext.getGL();
         }
 
         abstract void initCaches();
@@ -760,6 +766,9 @@ public abstract class HardwareRenderer {
                 if (!createSurface(holder)) {
                     return;
                 }
+
+                mUpdateDirtyRegions = true;
+
                 if (mCanvas != null) {
                     setEnabled(true);
                 }
@@ -930,14 +939,12 @@ public abstract class HardwareRenderer {
                     fallback(true);
                     return SURFACE_STATE_ERROR;
                 } else {
-                    /**
-                      * Need to make sure preserve_buff swap is set properly for this context
-                      */
-                    if (sDirtyRegions) {
-                       if (!(mDirtyRegionsEnabled = GLES20Canvas.preserveBackBuffer())) {
-                                    Log.w(LOG_TAG, "Backbuffer cannot be preserved");
-                       }
-                    }
+                    if (SystemProperties.QCOM_HARDWARE ) {
+                        if (mUpdateDirtyRegions) {
+                            enableDirtyRegions();
+                            mUpdateDirtyRegions = false;
+                        }
+                     }
                     return SURFACE_STATE_UPDATED;
                 }
             }
