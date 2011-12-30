@@ -143,18 +143,6 @@ void OpenGLRenderer::setViewport(int width, int height) {
 
     mDirtyClip = false;
 }
-    
-void OpenGLRenderer::getViewport(int &width, int &height) {
-    width = mWidth;
-    height = mHeight;
-}
-
-#ifdef QCOM_HARDWARE
-void OpenGLRenderer::getViewport(int &width, int &height) {
-    width = mWidth;
-    height = mHeight;
-}
-#endif
 
 #ifdef QCOM_HARDWARE
 void OpenGLRenderer::getViewport(int &width, int &height) {
