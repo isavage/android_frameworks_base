@@ -151,9 +151,6 @@ public final class ShutdownThread extends Thread {
                                 return true;
                             }
                         });
-                // Initialize to the first reason
-                String actions[] = context.getResources().getStringArray(com.android.internal.R.array.shutdown_reboot_actions);
-                mRebootReason = actions[0];
             } else {
                 dialog = new AlertDialog.Builder(context)
                         .setIcon(android.R.drawable.ic_dialog_alert)
@@ -223,7 +220,7 @@ public final class ShutdownThread extends Thread {
         ProgressDialog pd = new ProgressDialog(context);
         if (mReboot) {
             if (mRebootHot) {
-                pd.setTitle(context.getText(com.android.internal.R.string.reboot_hot));
+                pd.setTitle(context.getText(com.android.internal.R.string.hot_reboot_title));
                 pd.setMessage(context.getText(com.android.internal.R.string.hot_reboot_progress));
             } else {
                 pd.setTitle(context.getText(com.android.internal.R.string.reboot_system));
