@@ -36,7 +36,7 @@ import java.nio.charset.Charsets;
  */
 public final class NetworkManagementSocketTagger extends SocketTagger {
     private static final String TAG = "NetworkManagementSocketTagger";
-    private static final boolean LOGD = false;
+    private static final boolean LOGD = true;
 
     /**
      * {@link SystemProperties} key that indicates if {@code qtaguid} bandwidth
