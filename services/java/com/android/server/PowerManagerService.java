@@ -500,6 +500,7 @@ public class PowerManagerService extends IPowerManager.Stub
                 // recalculate everything
                 setScreenOffTimeoutsLocked();
 
+                // Animation settings controlled by system configuration
                 final float windowScale = getFloat(WINDOW_ANIMATION_SCALE, 1.0f);
                 final float transitionScale = getFloat(TRANSITION_ANIMATION_SCALE, 1.0f);
                 mAnimationSetting = 0;
@@ -510,6 +511,14 @@ public class PowerManagerService extends IPowerManager.Stub
                     // Uncomment this if you want the screen-on animation.
                     // mAnimationSetting |= ANIM_SETTING_ON;
                 }
+                // Can be modified to allow independant settings with:
+                // mAnimationSetting = 0;
+                // if (mElectronBeamAnimationOff) {
+                //    mAnimationSetting |= ANIM_SETTING_OFF;
+                // }
+                // if (mElectronBeamAnimationOn) {
+                //    mAnimationSetting |= ANIM_SETTING_ON;
+                // }
             }
         }
     }
