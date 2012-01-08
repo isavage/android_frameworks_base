@@ -210,11 +210,9 @@ class ServerThread extends Thread {
                 Slog.e(TAG, "Failure starting Account Manager", e);
             }
 
-
             Slog.i(TAG, "Content Manager");
             ContentService.main(context,
                     factoryTest == SystemServer.FACTORY_TEST_LOW_LEVEL);
-
 
             Slog.i(TAG, "System Content Providers");
             ActivityManagerService.installSystemProviders();
@@ -602,13 +600,11 @@ class ServerThread extends Thread {
                 "1".equals(SystemProperties.get("persist.service.adb.enable")) ? 1 : 0);
 
         // register observer to listen for settings changes
-        mContentResolver.registerContentObserver(
-            Settings.Secure.getUriFor(Settings.Secure.ADB_PORT),
-            false, new AdbPortObserver());
+        mContentResolver.registerContentObserver(Settings.Secure.getUriFor(Settings.Secure.ADB_PORT),
+                false, new AdbPortObserver());
 
-        mContentResolver.registerContentObserver(
-            Settings.Secure.getUriFor(Settings.Secure.ADB_ENABLED),
-            false, new AdbSettingsObserver());
+        mContentResolver.registerContentObserver(Settings.Secure.getUriFor(Settings.Secure.ADB_ENABLED),
+                false, new AdbSettingsObserver());
 
         // Before things start rolling, be sure we have decided whether
         // we are in safe mode.
