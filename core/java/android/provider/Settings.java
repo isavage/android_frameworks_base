@@ -2193,6 +2193,98 @@ public final class Settings {
          */
         public static final String MENU_UNLOCK_SCREEN = "menu_unlock_screen";
 
+        /* START Constants for Evervolv Toolbox */
+
+        /**
+         * Custom caption for the lockscreen and expanded statusbar. The value is a string.
+         * @hide
+         */
+        public static final String CARRIER_CAP = "carrier_caption";
+
+        /**
+         * Which lockscreen style to use. The value is an integer.
+         * ( 1 - Tabs style: Eclair )
+         * ( 2 - Rotary style: GB   )
+         * ( 3 - MultiwaveView: ICS )
+         * @hide
+         */
+        public static final String LOCKSCREEN_STYLE = "lockscreen_style";
+
+
+        /**
+         * Whether to wake the screen with the trackball. The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String TRACKBALL_WAKE_SCREEN = "trackball_wake_screen";
+
+        /**
+         * Whether to unlock the screen with the trackball.  The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String TRACKBALL_UNLOCK_SCREEN = "trackball_unlock_screen";
+
+        /**
+         * Specifies whether to show AM/PM indicators for 12-hour. The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String HIDE_CLOCK_AMPM = "hide_ampm";
+
+        /**
+         * Specifies whether to show status clock. The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String HIDE_CLOCK = "hide_clock";
+
+        /**
+         * USB: Tether data connection upon USB plugging in.
+         * @hide
+         */
+         public static final String TETHER_ON_PLUGIN = "tether_on_plugin";
+
+         /**
+          * Statusbar Icon Flags: Stores the flags used to show/hide various statusbar icons.
+          * @hide
+          */
+          public static final String STATUSBAR_ICON_FLAGS = "statusbar_icon_flags";
+
+        /**
+         * Toggle between multiwaveview 2way and 3way lockscreen style.
+         * @hide
+         */
+        public static final String LOCKSCREEN_STYLE_MULITWAVEVIEW_3WAY =
+                    "lockscreen_style_multiwaveview_3way";
+
+        /**
+         * Toggle to force multiwaveview lockscreen silent mode toggle
+         * even if we have a camera.
+         * @hide
+         */
+        public static final String LOCKSCREEN_STYLE_MULTIWAVEVIEW_SILENTMODE =
+                    "lockscreen_style_multiwaveview_silentmode";
+
+        /**
+         * Store the uri of our custom app.
+         * @hide
+         */
+        public static final String LOCKSCREEN_STYLE_MULTIWAVEVIEW_CUSTOMAPP =
+                    "lockscreen_style_multiwaveview_customapp";
+
+        /**
+         * String of user-defined widgets, defaulted to ..... TODO .....
+         * Delimited by | (pipe)
+         * @hide
+         */
+
+        public static final String SELECTED_TOOLBOX_WIDGETS = "selected_toolbox_widgets";
+
+        /**
+         * Enable/Disable lockscreen volume button music controls to change media tracks.
+         * @hide
+         */
+        public static final String LOCKSCREEN_MUSIC_CONTROLS_VOLBTN = "lockscreen_music_controls_volbtn";
+
+        /* END Constants for Evervolv Toolbox */
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
