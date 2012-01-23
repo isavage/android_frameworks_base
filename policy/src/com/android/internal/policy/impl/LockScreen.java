@@ -488,23 +488,4 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
 
     public void onPhoneStateChanged(String newState) {
     }
-
-    private Drawable resize(Drawable image) {
-        Bitmap d = ((BitmapDrawable)image).getBitmap();
-        Bitmap bitmapOrig = Bitmap.createScaledBitmap(d, 55, 55, false);
-        return new BitmapDrawable(getContext().getResources(), bitmapOrig);
-    }
-
-    //Not using this for now, but wanted to keep it just in case.
-    protected Drawable convertToGrayscale(Drawable drawable) {
-        ColorMatrix matrix = new ColorMatrix();
-        matrix.setSaturation(0);
-
-        ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrix);
-
-        drawable.setColorFilter(filter);
-
-        return drawable;
-    }
-
 }
