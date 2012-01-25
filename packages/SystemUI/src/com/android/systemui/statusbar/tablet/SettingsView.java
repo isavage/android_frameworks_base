@@ -47,6 +47,7 @@ public class SettingsView extends LinearLayout implements View.OnClickListener {
     BrightnessController mBrightness;
     DoNotDisturbController mDoNotDisturb;
     BluetoothController mBluetooth;
+    WifiController mWifi;
 
     public SettingsView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
@@ -67,7 +68,9 @@ public class SettingsView extends LinearLayout implements View.OnClickListener {
         findViewById(R.id.network).setOnClickListener(this);
         findViewById(R.id.bluetooth).setOnClickListener(this);
         mBluetooth = new BluetoothController(context,
-				(CompoundButton)findViewById(R.id.bluetooth_checkbox));
+					     (CompoundButton)findViewById(R.id.bluetooth_checkbox));
+        mWifi = new WifiController(context,
+				(CompoundButton)findViewById(R.id.wifi_checkbox));
         mRotate = new AutoRotateController(context,
                 (CompoundButton)findViewById(R.id.rotate_checkbox));
         mBrightness = new BrightnessController(context,

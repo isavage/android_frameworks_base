@@ -58,7 +58,7 @@ public class BluetoothController extends BroadcastReceiver
     }
 
     public BluetoothController(Context context, CompoundButton checkbox) {
-        mContext = context;
+	mContext = context;
 	mCheckBox = checkbox;
 	mCheckBox.setChecked(mEnabled);
 	mCheckBox.setOnCheckedChangeListener(this);
@@ -98,7 +98,7 @@ public class BluetoothController extends BroadcastReceiver
         if (checked != mEnabled) {
             mEnabled = checked;
 	    setBluetoothEnabled(mEnabled);
-            setBluetoothStateInt(mAdapter.getState());
+	    setBluetoothStateInt(mAdapter.getState());
 	    syncBluetoothState();
         }
     }
@@ -130,8 +130,8 @@ public class BluetoothController extends BroadcastReceiver
         mState = state;
 	if (state == BluetoothAdapter.STATE_ON)
 	    {
-	if (mCheckBox != null)
-		mCheckBox.setChecked(true);
+		if (mCheckBox != null)
+		    mCheckBox.setChecked(true);
 	    }
 	else
 	    if (mCheckBox != null)
