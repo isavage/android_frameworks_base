@@ -208,7 +208,7 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
         
         public void updateResources() {
             int resId;
-            if (mSoundLock) {
+            if (!mSoundLock) {
                 if (mCameraDisabled) {
                     // Fall back to showing ring/silence if camera is disabled by DPM...
                     resId = mSilentMode ? R.array.lockscreen_targets_when_silent
